@@ -1,3 +1,6 @@
+## ----setup, include=FALSE-----------------------------------------------------
+knitr::opts_chunk$set(echo = TRUE, eval=FALSE)
+
 ## ----Figure1, eval=TRUE, echo=FALSE, out.width = '100%', fig.align = "center"----
 knitr::include_graphics("priorCON_flowchart.png")
 

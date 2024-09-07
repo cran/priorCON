@@ -359,7 +359,7 @@ individual planning units, <strong>priorCON</strong> focuses on clusters
 of features that exhibit strong ecological linkages. The
 <strong>priorCON</strong> package is built upon the
 <strong>prioritizr</strong> package (<a href="#ref-prioritizr">Hanson et
-al. 2024</a>), using commercial and open-source exact algorithm solvers
+al., 2024</a>), using commercial and open-source exact algorithm solvers
 that ensure optimal solutions to prioritization problems.</p>
 <p><strong>Features of priorCON</strong></p>
 <ul>
@@ -396,7 +396,7 @@ from various inputs formats.</p></li>
 <li><p>Connectivity metrics estimation: Function
 <code>get_metrics()</code> is built to calculate the following graph
 metrics: degree, eigenvector centrality, betweenness centrality, louvain
-clustering, walktrap clustering, s-core.</p></li>
+clustering, walktrap clustering, s-core, PageRank.</p></li>
 <li><p>Prioritization: Functions <code>basic_scenario()</code> and
 <code>connectivity_scenario()</code> are used to insert the data to
 <strong>prioritizr</strong> run the prioritization problem and obtain
@@ -504,13 +504,13 @@ skipped.</p>
 metrics values. The edge lists created from the previous step, or
 inserted directly from the user are used in this step to create graphs.
 The directed graphs are transformed to undirected. The function is based
-on the <strong>igraph</strong> package (<a href="#ref-csardi2006igraph">Csárdi and Nepusz 2006</a>; <a href="#ref-igraph">Csárdi et al. 2024</a>) which is used to create
+on the <strong>igraph</strong> package (<a href="#ref-csardi2006igraph">Csárdi and Nepusz, 2006</a>; <a href="#ref-igraph">Csárdi et al., 2024</a>) which is used to create
 clusters using Louvain and Walktrap and calculate the following metrics:
-Eigenvector Centrality, Betweenness Centrality and Degree. S-core is
-calculated using the package <strong>brainGraph</strong> (<a href="#ref-brainGraph">Watson 2024</a>). The user can choose between
+Eigenvector Centrality, Betweenness Centrality and Degree and PageRank.
+S-core is calculated using the package <strong>brainGraph</strong> (<a href="#ref-brainGraph">Watson, 2024</a>). The user can choose between
 these options to create the respective outputs. <code>&#39;s_core&#39;</code>,
 <code>&#39;louvain&#39;</code>, <code>&#39;walktrap&#39;</code>, <code>&#39;eigen&#39;</code>,
-<code>&#39;betw&#39;</code> or <code>&#39;deg&#39;</code>.</p>
+<code>&#39;betw&#39;</code>, <code>&#39;deg&#39;</code> or <code>&#39;page_rank&#39;</code>.</p>
 <p>Detailed information on the theory and equations of the used graph
 metrics are provided in Nagkoulis et al.(2024; subm Methods in Ecology
 and Evolution).</p>
@@ -531,10 +531,10 @@ both functions, if they wish to compare the results obtained from the
 two scenarios, i.e. with and without connectivity. Alternatively, only
 the <code>connectivity_scenario()</code> function can be run to obtain
 the prioritization outputs of the connectivity scenario. Both functions
-are based on the <strong>priorititizr</strong> package (<a href="#ref-prioritizr">Hanson et al. 2024</a>). The connectivity metrics
-are first transformed to rasters, following an approach similar to
-Marxan Connect (<a href="#ref-daigle2020operationalizing">Daigle et
-al. 2020</a>). Then <strong>priorititizr</strong> maximizes the utility
+are based on the <strong>priorititizr</strong> package (<a href="#ref-prioritizr">Hanson et al., 2024</a>). The connectivity
+metrics are first transformed to rasters, following an approach similar
+to Marxan Connect (<a href="#ref-daigle2020operationalizing">Daigle et
+al., 2020</a>). Then <strong>priorititizr</strong> maximizes the utility
 obtained from protecting both features and connections. Mathematically,
 the target of the optimization is to maximize U under the budget (B)
 limitations (eq. 2 and 3 of Nagkoulis et al.(2024)):</p>
@@ -656,10 +656,10 @@ connections shown
 <h2><strong>References</strong></h2>
 <p>Csárdi, Gábor, and Tamás Nepusz. 2006. “<span id="ref-csardi2006igraph" class="nocase">The igraph software package for
 complex network research</span>.” <em>InterJournal</em> Complex Systems:
-1695. <a href="https://igraph.org">https://igraph.org</a>.</p>
+1695. <a href="https://igraph.org" class="uri">https://igraph.org</a>.</p>
 <p>Csárdi, Gábor, Tamás Nepusz, Vincent Traag, Szabolcs Horvát, Fabio
 Zanini, Daniel Noom, and Kirill Müller. 2024. <em><span id="ref-igraph" class="nocase"> igraph: Network Analysis and Visualization in
-R</span></em>. <a href="https://doi.org/10.5281/zenodo.7682609">https://doi.org/10.5281/zenodo.7682609</a>.</p>
+R</span></em>. <a href="https://doi.org/10.5281/zenodo.7682609" class="uri">https://doi.org/10.5281/zenodo.7682609</a>.</p>
 <p>Daigle, Rémi M., Anna Metaxas, Arieanna C. Balbar, Jennifer McGowan,
 Eric A. Treml, Caitlin D. Kuempel, Hugh P. Possingham, and Maria Beger.
 2020. “<span id="ref-daigle2020operationalizing" class="nocase">
@@ -669,9 +669,9 @@ Evolution</em> 11 (4): 570–79. <a href="https://doi.org/10.1111/2041-210X.1334
 <p>Hanson, Jeffrey O, Richard Schuster, Nina Morrell, Matthew
 Strimas-Mackey, Brandon P M Edwards, Matthew E Watts, Peter Arcese,
 Joseph R Bennett, and Hugh P Possingham. 2024. <em><span id="ref-prioritizr" class="nocase"> prioritizr: Systematic Conservation
-Prioritization in R</span></em>. <a href="https://CRAN.R-project.org/package=prioritizr">https://CRAN.R-project.org/package=prioritizr</a>.</p>
+Prioritization in R</span></em>. <a href="https://CRAN.R-project.org/package=prioritizr" class="uri">https://CRAN.R-project.org/package=prioritizr</a>.</p>
 <p>Watson, Christopher G. 2024. <em><span id="ref-brainGraph" class="nocase">brainGraph: Graph Theory Analysis of Brain MRI
-Data</span></em>. <a href="https://doi.org/10.32614/CRAN.package.brainGraph">https://doi.org/10.32614/CRAN.package.brainGraph</a>.</p>
+Data</span></em>. <a href="https://doi.org/10.32614/CRAN.package.brainGraph" class="uri">https://doi.org/10.32614/CRAN.package.brainGraph</a>.</p>
 </div>
 </div>
 

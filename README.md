@@ -1,3 +1,10 @@
+<!-- badges: start -->
+  [![CRAN status](https://www.r-pkg.org/badges/version/priorCON)](https://CRAN.R-project.org/package=priorCON)
+  [![](https://img.shields.io/badge/devel%20version-0.1.1-blue.svg)](https://CRAN.R-project.org/package=priorCON)
+[![R-CMD-check](https://github.com/cadam00/priorCON/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/cadam00/priorCON/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/cadam00/priorCON/branch/main/graph/badge.svg)](https://app.codecov.io/gh/cadam00/priorCON?branch=main)
+<!-- badges: end -->
+
 **This work was supported by the European Union’s Horizon 2020 research and innovation programme HORIZON-CL6–2021-BIODIV-01–12 under grant agreement No 101059407 “MarinePlan – Improved transdisciplinary science for effective ecosystem-based maritime spatial planning and conservation in European Seas”.**
 
 # **Introduction to the priorCON Package (tutorial)**
@@ -9,7 +16,7 @@ on the protection of areas with high ecological connectivity. Unlike
 traditional approaches that prioritize individual planning units,
 **priorCON** focuses on clusters of features that exhibit strong
 ecological linkages. The **priorCON** package is built upon the
-**prioritizr** package ([Hanson et al. 2024](#ref-prioritizr)), using
+**prioritizr** package ([Hanson et al., 2024](#ref-prioritizr)), using
 commercial and open-source exact algorithm solvers that ensure optimal
 solutions to prioritization problems.
 
@@ -31,7 +38,7 @@ solutions to prioritization problems.
 
 This workflow is shown on Fig. [1](#ref-Figure1).
 
-<img src="priorCON_flowchart.png" alt="Flow chart of the priorCON prioritization analysis. priorCON functions are indicated in grey boxes" width="100%" />
+<img src="man/figures/priorCON_flowchart.png" alt="Flow chart of the priorCON prioritization analysis. priorCON functions are indicated in grey boxes" width="100%" />
 <p class="caption" align="center">
 <span id="ref-Figure1"></span>Fig. 1: Flow chart of the <b>priorCON</b>
 prioritization analysis. <b>priorCON</b> functions are indicated in grey boxes
@@ -51,7 +58,7 @@ The package provides 4 steps to perform the analysis:
 2.  Connectivity metrics estimation: Function `get_metrics()` is built
     to calculate the following graph metrics: degree, eigenvector
     centrality, betweenness centrality, louvain clustering, walktrap
-    clustering, s-core.
+    clustering, s-core, PageRank.
 
 3.  Prioritization: Functions `basic_scenario()` and
     `connectivity_scenario()` are used to insert the data to **prioritizr**
@@ -69,9 +76,13 @@ example to explain in more detail how the functions operate.
 
 ## **Installation**
 
-All the functions of the package **priorCON** at the development version
-can be installed in R via
+All the functions of the package can be installed from CRAN in R via
+``` r
+install.packages("priorCON")
+```
 
+Alternatively, the package **priorCON** can be installed at the development
+version from Github in R via
 ``` r
 if (!require(remotes)) install.packages("remotes")
 remotes::install_github("cadam00/priorCON")
@@ -103,7 +114,7 @@ formats are given below. In case that an edge list is available, this
 step can be skipped.
 
 <p align="center">
-  <img src="priorCON_fig2.png" alt="Weighted directed graph (left): Circles represent nodes and arrows represent weighted edges. The tabular representation of the graph represents the edge list (right)." width="50%" />
+  <img src="man/figures/priorCON_fig2.png" alt="Weighted directed graph (left): Circles represent nodes and arrows represent weighted edges. The tabular representation of the graph represents the edge list (right)." width="50%" />
 </p>
 <p class="caption" align="center">
 <span id="ref-Figure2"></span>Fig. 2: Weighted directed graph (left):
@@ -140,7 +151,7 @@ tutorial. The data need to be stored in this way in order for the
 algorithm to read them properly.
 
 <p align="center">
-    <img src="priorCON_fig3.png" alt="Connectivity folder" width="50%"  />
+    <img src="man/figures/priorCON_fig3.png" alt="Connectivity folder" width="50%"  />
 </p>
 <p class="caption" align="center">
 <span id="ref-Figure3"></span>Fig. 3: Connectivity folder
@@ -156,7 +167,7 @@ order for the algorithm to match the coordinates with the points (Fig.
 <a href="#ref-Figure4">4</a>).
 
 <p align="center">
-    <img src="priorCON_fig4.png" alt="The 001.txt file contains the following information: Each row represents the probability of movement between point 001 and any other destination points." width="50%"/>
+    <img src="man/figures/priorCON_fig4.png" alt="The 001.txt file contains the following information: Each row represents the probability of movement between point 001 and any other destination points." width="50%"/>
 </p>
 <p class="caption" align="center">
 <span id="ref-Figure4"></span>Fig. 4: The 001.txt file contains the
@@ -187,13 +198,14 @@ Function `get_metrics()` is used to calculate graph metrics values. The
 edge lists created from the previous step, or inserted directly from the
 user are used in this step to create graphs. The directed graphs are
 transformed to undirected. The function is based on the **igraph**
-package ([Csárdi and Nepusz 2006](#ref-csardi2006igraph); [Csárdi et al.
+package ([Csárdi and Nepusz, 2006](#ref-csardi2006igraph); [Csárdi et al.,
 2024](#ref-igraph)) which is used to create clusters using Louvain and
 Walktrap and calculate the following metrics: Eigenvector Centrality,
-Betweenness Centrality and Degree. S-core is calculated using the
-package **brainGraph** ([Watson 2024](#ref-brainGraph)). The user can
+Betweenness Centrality,  Degree and PageRank. S-core is calculated using the
+package **brainGraph** ([Watson, 2024](#ref-brainGraph)). The user can
 choose between these options to create the respective outputs.
-`'s_core'`, `'louvain'`, `'walktrap'`, `'eigen'`, `'betw'` or `'deg'`.
+`'s_core'`, `'louvain'`, `'walktrap'`, `'eigen'`, `'betw'`, `'deg'` or
+`'page_rank'`.
 
 Detailed information on the theory and equations of the used graph
 metrics are provided in Nagkoulis et al.(2024; subm Methods in Ecology
@@ -217,10 +229,10 @@ they wish to compare the results obtained from the two scenarios,
 i.e. with and without connectivity. Alternatively, only the
 `connectivity_scenario()` function can be run to obtain the
 prioritization outputs of the connectivity scenario. Both functions are
-based on the **priorititizr** package ([Hanson et al.
+based on the **priorititizr** package ([Hanson et al.,
 2024](#ref-prioritizr)). The connectivity metrics are first transformed
 to rasters, following an approach similar to Marxan Connect ([Daigle et
-al. 2020](#ref-daigle2020operationalizing)). Then **priorititizr**
+al., 2020](#ref-daigle2020operationalizing)). Then **priorititizr**
 maximizes the utility obtained from protecting both features and
 connections. Mathematically, the target of the optimization is to
 maximize U under the budget (B) limitations (eq. 2 and 3 of Nagkoulis et
@@ -252,7 +264,7 @@ tm_shape(cost_raster) +
 ```
 
 <p align="center">
-    <img src="cost_raster.png" alt="Cost raster" width="50%"/>
+    <img src="man/figures/cost_raster.png" alt="Cost raster" width="50%"/>
 </p>
 <p class="caption" align="center">
 <span id="ref-Costraster"></span>Fig. 5: Cost raster
@@ -273,7 +285,7 @@ tm_shape(features) +
 ```
 
 <p align="center">
-    <img src="features.png" alt="Features raster" width="50%"  />
+    <img src="man/figures/features.png" alt="Features raster" width="50%"  />
 </p>
 <p class="caption" align="center">
 <span id="ref-Features"></span>Fig. 6: Features raster
@@ -314,7 +326,7 @@ basic_outputs$tmap
 ```
 
 <p align="center">
-    <img src="basic_output.png" alt="Basic solution with connections shown" width="50%"  />
+    <img src="man/figures/basic_output.png" alt="Basic solution with connections shown" width="50%"  />
 </p>
 <p class="caption" align="center">
 <span id="ref-Basic"></span>Fig. 7: Basic solution with connections
@@ -341,7 +353,7 @@ connectivity_outputs$tmap
 ```
 
 <p align="center">
-    <img src="connectivity_output.png" alt="Connectivity solution with connections shown" width="50%" />
+    <img src="man/figures/connectivity_output.png" alt="Connectivity solution with connections shown" width="50%" />
 </p>
 <p class="caption" align="center">
 <span id="ref-Connectivity"></span>Fig. 8: Connectivity solution with

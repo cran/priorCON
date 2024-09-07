@@ -4,6 +4,9 @@ author: "Christos Adam, Nikolaos Nagkoulis, Aggeliki Doxa"
 output:
   rmarkdown::html_vignette:
     number_sections: false
+    # md_extensions: [ 
+    #   "-autolink_bare_uris" 
+    # ]
   word_document: default
   pdf_document: default
 bibliography: biblio.bib
@@ -17,6 +20,11 @@ vignette: >
   %\VignetteIndexEntry{Introduction to priorCON}
   %\VignetteEncoding{UTF-8}
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval=FALSE)
+```
+
 **This work was supported by the European Union’s Horizon 2020 research and innovation programme HORIZON-CL6–2021-BIODIV-01–12 under grant agreement No 101059407 “MarinePlan – Improved transdisciplinary science for effective ecosystem-based maritime spatial planning and conservation in European Seas”.**
 
 # **Introduction to the priorCON Package (tutorial)**
@@ -28,7 +36,7 @@ on the protection of areas with high ecological connectivity. Unlike
 traditional approaches that prioritize individual planning units,
 **priorCON** focuses on clusters of features that exhibit strong
 ecological linkages. The **priorCON** package is built upon the
-**prioritizr** package ([Hanson et al. 2024](#ref-prioritizr)), using
+**prioritizr** package ([Hanson et al., 2024](#ref-prioritizr)), using
 commercial and open-source exact algorithm solvers that ensure optimal
 solutions to prioritization problems.
 
@@ -72,7 +80,7 @@ The package provides 4 steps to perform the analysis:
 2.  Connectivity metrics estimation: Function `get_metrics()` is built
     to calculate the following graph metrics: degree, eigenvector
     centrality, betweenness centrality, louvain clustering, walktrap
-    clustering, s-core.
+    clustering, s-core, PageRank.
 
 3.  Prioritization: Functions `basic_scenario()` and
     `connectivity_scenario()` are used to insert the data to **prioritizr**
@@ -198,13 +206,14 @@ Function `get_metrics()` is used to calculate graph metrics values. The
 edge lists created from the previous step, or inserted directly from the
 user are used in this step to create graphs. The directed graphs are
 transformed to undirected. The function is based on the **igraph**
-package ([Csárdi and Nepusz 2006](#ref-csardi2006igraph); [Csárdi et al.
+package ([Csárdi and Nepusz, 2006](#ref-csardi2006igraph); [Csárdi et al.,
 2024](#ref-igraph)) which is used to create clusters using Louvain and
 Walktrap and calculate the following metrics: Eigenvector Centrality,
-Betweenness Centrality and Degree. S-core is calculated using the
-package **brainGraph** ([Watson 2024](#ref-brainGraph)). The user can
+Betweenness Centrality and Degree and PageRank. S-core is calculated using the
+package **brainGraph** ([Watson, 2024](#ref-brainGraph)). The user can
 choose between these options to create the respective outputs.
-`'s_core'`, `'louvain'`, `'walktrap'`, `'eigen'`, `'betw'` or `'deg'`.
+`'s_core'`, `'louvain'`, `'walktrap'`, `'eigen'`, `'betw'`, `'deg'` or
+`'page_rank'`.
 
 Detailed information on the theory and equations of the used graph
 metrics are provided in Nagkoulis et al.(2024; subm Methods in Ecology
@@ -228,10 +237,10 @@ they wish to compare the results obtained from the two scenarios,
 i.e. with and without connectivity. Alternatively, only the
 `connectivity_scenario()` function can be run to obtain the
 prioritization outputs of the connectivity scenario. Both functions are
-based on the **priorititizr** package ([Hanson et al.
+based on the **priorititizr** package ([Hanson et al.,
 2024](#ref-prioritizr)). The connectivity metrics are first transformed
 to rasters, following an approach similar to Marxan Connect ([Daigle et
-al. 2020](#ref-daigle2020operationalizing)). Then **priorititizr**
+al., 2020](#ref-daigle2020operationalizing)). Then **priorititizr**
 maximizes the utility obtained from protecting both features and
 connections. Mathematically, the target of the optimization is to
 maximize U under the budget (B) limitations (eq. 2 and 3 of Nagkoulis et
@@ -379,13 +388,13 @@ print(connectivity_outputs$connectivity_table)
 Csárdi, Gábor, and Tamás Nepusz. 2006.
 “<span class="nocase" id="ref-csardi2006igraph">The igraph
 software package for complex network research</span>.” *InterJournal*
-Complex Systems: 1695. [https://igraph.org](https://igraph.org).
+Complex Systems: 1695. https://igraph.org.
 
 Csárdi, Gábor, Tamás Nepusz, Vincent Traag, Szabolcs Horvát, Fabio
 Zanini, Daniel Noom, and Kirill Müller. 2024.
 *<span class="nocase" id="ref-igraph">
 igraph: Network Analysis and Visualization in
-R</span>*. [https://doi.org/10.5281/zenodo.7682609](https://doi.org/10.5281/zenodo.7682609).
+R</span>*. https://doi.org/10.5281/zenodo.7682609.
 
 Daigle, Rémi M., Anna Metaxas, Arieanna C. Balbar, Jennifer McGowan,
 Eric A. Treml, Caitlin D. Kuempel, Hugh P. Possingham, and Maria Beger.
@@ -400,8 +409,8 @@ Strimas-Mackey, Brandon P M Edwards, Matthew E Watts, Peter Arcese,
 Joseph R Bennett, and Hugh P Possingham. 2024.
 *<span class="nocase" id="ref-prioritizr">
 prioritizr: Systematic Conservation Prioritization
-in R</span>*. [https://CRAN.R-project.org/package=prioritizr](https://CRAN.R-project.org/package=prioritizr).
+in R</span>*. https://CRAN.R-project.org/package=prioritizr.
 
 Watson, Christopher G. 2024. *<span class="nocase" id="ref-brainGraph">brainGraph: Graph
 Theory Analysis of Brain MRI Data</span>*.
-[https://doi.org/10.32614/CRAN.package.brainGraph](https://doi.org/10.32614/CRAN.package.brainGraph).
+https://doi.org/10.32614/CRAN.package.brainGraph.
