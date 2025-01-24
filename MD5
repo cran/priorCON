@@ -1,8 +1,8 @@
-71d9b6594376c23178f57f4fbb1ca6a4 *DESCRIPTION
-05523877f11bd952c6b4153609bc8776 *NAMESPACE
-b1e38b3536574a3e3eda2d4a0cb1abed *NEWS.md
-1dbc321ce02555621c3839747f4e72f3 *R/functions_connect.R
-8607a7e9812ea194839273f9ec054664 *README.md
+be99f75436c45b8fb20addb1e17a6af1 *DESCRIPTION
+300e461658164c3744ed6d0adc8b2337 *NAMESPACE
+35bc0714572fb648919b3f90e7eefd66 *NEWS.md
+250bf92f4030e0eeb59636c161b351b0 *R/functions_connect.R
+36bdaa0d1bd23740cc13a33a34679a64 *README.md
 1dda19015f0aa969acee990c150e3ac9 *build/partial.rdb
 fcfb368bdcbf8145a3ccb3d866b5fd52 *build/vignette.rds
 33803683ea6439df1206cc77d3c3c9d6 *inst/doc/Introduction.R
@@ -122,8 +122,8 @@ ce70ef132df8a0de35b937beff1bde17 *inst/external/f1/110.txt
 9cc424ba81628269b9ebfee0fad73996 *inst/external/f1/112.txt
 03646c5e786dbc1642ce118dc5adc853 *inst/rasters/cost_raster.tif
 cbb3ce0a0590824905a5a0a61eac5bf8 *inst/rasters/features_raster.tif
-c9428ed9300cd320a8e2ce7f5c0aa55f *man/basic_scenario.Rd
-b6f086024633ae4ddf234f990c28c1da *man/connectivity_scenario.Rd
+834429d69df9bf769f979094cdfaee48 *man/basic_scenario.Rd
+1cfb801a95330a21cfb14d2e35daf0a1 *man/connectivity_scenario.Rd
 d56c03b5a06f65e2b95f61eec3d55a42 *man/figures/basic_output.png
 00e4c51f5e95649644ccec89cb87c01d *man/figures/connectivity_output.png
 2fd1b951df15f0f42126c49bfed0deac *man/figures/cost_raster.png
@@ -140,8 +140,8 @@ e06858e45649380ca539baa7cc6cf68a *man/get_metrics.Rd
 184e51825711c2efd16897cffcf30e49 *man/get_outputs.Rd
 b71ac0504cbd342198ef43aee2fca229 *man/preprocess_graphs.Rd
 fa02a146a138e971abacf3bbd02c4dcd *tests/testthat.R
-3584948c002ceca3116698cf926471f0 *tests/testthat/test-basic_scenario.r
-31cf69aa9f62e90ed6e6732a4cefdad0 *tests/testthat/test-connectivity_scenario.r
+ae528c24f6c1dc3c70117fa70c1553cd *tests/testthat/test-basic_scenario.r
+66303c2d3ef9cb5838cf44d6582b693a *tests/testthat/test-connectivity_scenario.r
 b3a2ebf63274b8bc72c6629548e5c449 *tests/testthat/test-get_cost_raster.r
 7bbbc480db22fc46d487eeef75014411 *tests/testthat/test-get_features_raster.r
 c8ad1f38cae91ff9be095c0f5740c871 *tests/testthat/test-get_metrics.r
