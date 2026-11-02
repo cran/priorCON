@@ -1,13 +1,13 @@
-f24cedbdb17d982b500977e6e3cd5a3c *DESCRIPTION
+e7e5b3279b34fec9017394f1f492518d *DESCRIPTION
 904628343fb720e71ceab2cd87aa55b2 *NAMESPACE
-c7ee0594585662a526bad4692bb0efb8 *NEWS.md
+9781220bee0ca65e8d694dcf476d73dc *NEWS.md
 847de97000821505be55a755781fd44e *R/functions_connect.R
 566b2c933b3ca8db95e09b9b4c361dac *README.md
 6af8e7644a2c366a25339b1923c9a048 *build/partial.rdb
 10b60450ad086b74a0c043d4c64f7b49 *build/vignette.rds
 0fd414942ee21b96b62963e66bfdaa3e *inst/doc/Introduction.R
-3c47ce39af7d505fe7e13d2a31fdfa44 *inst/doc/Introduction.Rmd
-71a96ed93d4acf340ffe7e35cb595b42 *inst/doc/Introduction.html
+511a29f9835922a9a12abaaf9d38bb78 *inst/doc/Introduction.Rmd
+7b9b11bc889b1e66235e83ca8efae672 *inst/doc/Introduction.html
 2257fe06eae8f79e51f528cb4ea2779b *inst/external/f1/001.txt
 1d6d7b729116f708746a3966cf467189 *inst/external/f1/002.txt
 de05b6ccbcebf9c27c3d065776146df1 *inst/external/f1/003.txt
@@ -144,7 +144,7 @@ c8ad1f38cae91ff9be095c0f5740c871 *tests/testthat/test-get_metrics.r
 789b88a289234d4615636b04889fda56 *tests/testthat/test-get_outputs.r
 929fa9b81a71edddef105a06ea72225f *tests/testthat/test-graph_connectivity_rasters.r
 ace629cca02cf95e2e5b9b2fb33ff5a7 *tests/testthat/test-preprocess_graphs.r
-3c47ce39af7d505fe7e13d2a31fdfa44 *vignettes/Introduction.Rmd
+511a29f9835922a9a12abaaf9d38bb78 *vignettes/Introduction.Rmd
 936e7b0c86564c6d06be04003f795d4c *vignettes/basic_output.png
 9a2865c3cf93494de0ee3bdef1a0d16f *vignettes/biblio.bib
 9df3e29a1db8e6c3c8133f038b5972f6 *vignettes/connectivity_output.png
